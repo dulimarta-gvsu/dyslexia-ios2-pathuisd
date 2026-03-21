@@ -3,21 +3,17 @@
 //  dyslexia
 
 import Foundation
-
 struct Letter: Equatable, Hashable {
     var text: String = ""
     var point: Int = 0
 }
-
-extension Array<Letter?> {
-    func prettyPrint() -> String {
-        return self
-            .filter { $0 != nil }
-            .map { String($0!.text) }
-            .joined(separator: "")
-    }
+struct WordRecord: Identifiable, Hashable {
+    let id = UUID()
+    let word: String
+    let point: Int
+    let moves: Int
+    let seconds: Int
 }
-
 extension Array<Letter> {
     func prettyPrint() -> String {
         return self
@@ -25,3 +21,7 @@ extension Array<Letter> {
             .joined(separator: "")
     }
 }
+
+
+
+

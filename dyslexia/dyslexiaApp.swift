@@ -3,13 +3,14 @@
 //  dyslexia
 
 import SwiftUI
-
 @main
 struct dyslexiaApp: App {
+    @StateObject private var viewModel = AppViewModel()
+    @StateObject private var navigator = MyNavigator()
+    
     var body: some Scene {
         WindowGroup {
-            let viewModel = AppViewModel()
-            ContentView(viewModel: viewModel)
+            ContentView(viewModel: viewModel, navigator: navigator)
         }
     }
 }
